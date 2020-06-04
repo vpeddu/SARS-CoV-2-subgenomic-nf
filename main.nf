@@ -30,17 +30,25 @@ if (params.help){
  */
 
 
-include Trim from './modules/clomp_modules.nf'
-include Align from './modules/clomp_modules.nf' 
+include Trim from './modules.nf'
+include Align from './modules.nf' 
+
+BOWTIE2_PREFIX = params.BOWTIE2_PREFIX
+
+
+
+   BWT_FILES = Channel
+        .fromPath("${params.BOWTIE2_REF_LOCATION}/${params.BOWTIE2_PREFIX}*")
+        .map{it -> file(it)}
+        .collect()
 
 
 // Run the workflow
 workflow {
 
-
         input_read_ch = Channel
             .fromPath("${params.INPUT_FOLDER}*.fastq.gz")
-            //.ifEmpty { error "Cannot find any FASTQ pairs in ${params.INPUT_FOLDER} ending with ${params.INPUT_SUFFIX}" }
+
 
 
         // Validate that the inputs are paired-end gzip-compressed FASTQ
@@ -49,7 +57,9 @@ workflow {
             input_read_ch
         )
         Align(
-        Trim.out
+        Trim.out ,
+        BWT_FILES
+
         )
 
         

@@ -1,6 +1,8 @@
-*
+/*
  * Define the processes used in this workflow
  */
+BOWTIE2_PREFIX = params.BOWTIE2_PREFIX
+
 
 process Trim {
 
@@ -18,7 +20,8 @@ process Trim {
 
     // Define the output files
     output:
-      file "${sample_name}.trimmed.fastq.gz"
+      file "*trimmed.fastq.gz"
+
 
     // Code to be executed inside the task
     script:
@@ -63,11 +66,13 @@ process Align {
     // Define the input files
     input:
       file r1
+      file "*"
+      
 
     // Define the output files
     output:
-      file "${r1}"
-      file "*.log"
+      file "*.bam"
+
 
     // Code to be executed inside the task
     script:
@@ -77,14 +82,17 @@ set -e
 # For logging and debugging, list all of the files in the working directory
 ls -lahtr
 # Get the sample name from the input FASTQ name
-sample_name=\$(echo ${r1} | sed 's/.R1.fastq.gz//')
+
+sample_name=`basename -s .trimmed.fastq.gz ${r1}` 
+
 echo "Starting the alignment of ${r1}"
 bowtie2 \
     --no-unal \
     --threads ${task.cpus} \
-    -x "${baseDir}/ref" \
-    -U <(gunzip -c ${r1}) | \
-    samtools view -Sb - > \$sample_name.bam 2>&1 | \
-    tee -a \${sample_name}.log
+    -x ${BOWTIE2_PREFIX} \
+    -U ${r1} | \
+    samtools view -Sb - > \$sample_name.bam
+    #tee -a \${sample_name}.log
+
       """
 }
