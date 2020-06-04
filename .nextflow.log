@@ -1,68 +1,54 @@
-Jun-04 14:52:24.392 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf --INPUT_FOLDER test_data/ --BOWTIE2_REF_LOCATION test_data/bowtie2_refs/ --BOWTIE2_PREFIX cov2 -with-docker 'ubuntu:18.04' --OUTDIR test_data/OUT/ -resume
-Jun-04 14:52:24.518 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 20.01.0
-Jun-04 14:52:24.556 [main] INFO  nextflow.cli.CmdRun - Launching `main.nf` [jovial_euler] - revision: 4551bdcbb7
-Jun-04 14:52:24.576 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /Users/gerbix/Documents/vikas/ncov/margaret_subgenomic/SARS-CoV-2-subgenomic_NF/nextflow.config
-Jun-04 14:52:24.577 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /Users/gerbix/Documents/vikas/ncov/margaret_subgenomic/SARS-CoV-2-subgenomic_NF/nextflow.config
-Jun-04 14:52:24.604 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-Jun-04 14:52:25.113 [main] DEBUG nextflow.config.ConfigBuilder - Enabling execution in Docker container as requested by cli option `-with-docker ubuntu:18.04`
-Jun-04 14:52:25.182 [main] DEBUG nextflow.Session - Session uuid: f125217c-4719-40e7-bfe8-cbf39f4c7877
-Jun-04 14:52:25.182 [main] DEBUG nextflow.Session - Run name: jovial_euler
-Jun-04 14:52:25.183 [main] DEBUG nextflow.Session - Executor pool size: 8
-Jun-04 14:52:25.229 [main] DEBUG nextflow.cli.CmdRun - 
+Jun-04 16:23:42.942 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf --INPUT_FOLDER test_data/ --BOWTIE2_REF_LOCATION test_data/sars_cov_2_genome/ --BOWTIE2_PREFIX cov2 -with-docker 'ubuntu:18.04' --OUTDIR test_data/OUT/ -resume
+Jun-04 16:23:43.043 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 20.01.0
+Jun-04 16:23:43.054 [main] INFO  nextflow.cli.CmdRun - Launching `main.nf` [jolly_wozniak] - revision: 91eeba6783
+Jun-04 16:23:43.075 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /Users/gerbix/Documents/vikas/ncov/margaret_subgenomic/SARS-CoV-2-subgenomic_NF/nextflow.config
+Jun-04 16:23:43.076 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /Users/gerbix/Documents/vikas/ncov/margaret_subgenomic/SARS-CoV-2-subgenomic_NF/nextflow.config
+Jun-04 16:23:43.098 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Jun-04 16:23:43.455 [main] DEBUG nextflow.config.ConfigBuilder - Enabling execution in Docker container as requested by cli option `-with-docker ubuntu:18.04`
+Jun-04 16:23:43.494 [main] DEBUG nextflow.Session - Session uuid: da8f9022-772a-4cd5-afbf-5abd9b005ec9
+Jun-04 16:23:43.494 [main] DEBUG nextflow.Session - Run name: jolly_wozniak
+Jun-04 16:23:43.494 [main] DEBUG nextflow.Session - Executor pool size: 8
+Jun-04 16:23:43.684 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 20.01.0 build 5264
   Created: 12-02-2020 10:14 UTC (02:14 PDT)
   System: Mac OS X 10.14.6
   Runtime: Groovy 2.5.8 on Java HotSpot(TM) 64-Bit Server VM 11.0.1+13-LTS
   Encoding: UTF-8 (UTF-8)
-  Process: 22620@uw-virongs-vikas.local [10.19.225.194]
-  CPUs: 8 - Mem: 40 GB (54.9 MB) - Swap: 1 GB (845.8 MB)
-Jun-04 14:52:25.266 [main] DEBUG nextflow.Session - Work-dir: /Users/gerbix/Documents/vikas/ncov/margaret_subgenomic/SARS-CoV-2-subgenomic_NF/work [Mac OS X]
-Jun-04 14:52:25.266 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /Users/gerbix/Documents/vikas/ncov/margaret_subgenomic/SARS-CoV-2-subgenomic_NF/bin
-Jun-04 14:52:25.295 [main] DEBUG nextflow.Session - Observer factory: TowerFactory
-Jun-04 14:52:25.298 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-Jun-04 14:52:25.554 [main] DEBUG nextflow.Session - Session start invoked
-Jun-04 14:52:25.783 [main] WARN  nextflow.NextflowMeta$Preview - DSL 2 IS AN EXPERIMENTAL FEATURE UNDER DEVELOPMENT -- SYNTAX MAY CHANGE IN FUTURE RELEASE
-Jun-04 14:52:25.785 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Jun-04 14:52:25.981 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: Align, Trim
-Jun-04 14:52:26.063 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:Trim` matches process Trim
-Jun-04 14:52:26.070 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jun-04 14:52:26.070 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jun-04 14:52:26.078 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
-Jun-04 14:52:26.085 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=8; memory=40 GB; capacity=8; pollInterval=100ms; dumpInterval=5m
-Jun-04 14:52:26.157 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > Trim -- maxForks: 8; blocking: false
-Jun-04 14:52:26.187 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:Align` matches process Align
-Jun-04 14:52:26.188 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Jun-04 14:52:26.188 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jun-04 14:52:26.190 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > Align -- maxForks: 8; blocking: false
-Jun-04 14:52:26.199 [main] DEBUG nextflow.Session - Ignite dataflow network (4)
-Jun-04 14:52:26.216 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > Trim
-Jun-04 14:52:26.216 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: test_data/bowtie2_refs/; pattern: cov2*; options: [:]
-Jun-04 14:52:26.216 [PathVisitor-2] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: test_data/; pattern: *.fastq.gz; options: [:]
-Jun-04 14:52:26.217 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > Align
-Jun-04 14:52:26.218 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
-Jun-04 14:52:26.218 [main] DEBUG nextflow.Session - Session await
-Jun-04 14:52:26.517 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Jun-04 14:52:26.522 [Task submitter] INFO  nextflow.Session - [a3/e9348b] Submitted process > Trim (3)
-Jun-04 14:52:26.565 [Actor Thread 4] INFO  nextflow.processor.TaskProcessor - [d0/75fbbe] Cached process > Trim (1)
-Jun-04 14:52:29.516 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: Trim (3); status: COMPLETED; exit: 0; error: -; workDir: /Users/gerbix/Documents/vikas/ncov/margaret_subgenomic/SARS-CoV-2-subgenomic_NF/work/a3/e9348b79b97d48eafe245b5c49f2e1]
-Jun-04 14:52:29.521 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Jun-04 14:52:29.521 [Task submitter] INFO  nextflow.Session - [af/b5777b] Submitted process > Trim (2)
-Jun-04 14:52:38.237 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: Trim (2); status: COMPLETED; exit: 0; error: -; workDir: /Users/gerbix/Documents/vikas/ncov/margaret_subgenomic/SARS-CoV-2-subgenomic_NF/work/af/b5777bd827afee9dc02a77661c3c35]
-Jun-04 14:52:38.243 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Jun-04 14:52:38.243 [Task submitter] INFO  nextflow.Session - [88/9c6c82] Submitted process > Align (1)
-Jun-04 14:52:54.921 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: Align (1); status: COMPLETED; exit: 0; error: -; workDir: /Users/gerbix/Documents/vikas/ncov/margaret_subgenomic/SARS-CoV-2-subgenomic_NF/work/88/9c6c8262723707bd0a036cdc0983a5]
-Jun-04 14:52:54.924 [Actor Thread 2] DEBUG nextflow.extension.PublishOp - Publish operator got: /Users/gerbix/Documents/vikas/ncov/margaret_subgenomic/SARS-CoV-2-subgenomic_NF/work/88/9c6c8262723707bd0a036cdc0983a5/4598_S41_R1_.R1.metagenome.fastq.gz.bam
-Jun-04 14:52:54.927 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Jun-04 14:52:54.927 [Task submitter] INFO  nextflow.Session - [e3/b7ef0f] Submitted process > Align (2)
-Jun-04 14:52:57.560 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: Align (2); status: COMPLETED; exit: 0; error: -; workDir: /Users/gerbix/Documents/vikas/ncov/margaret_subgenomic/SARS-CoV-2-subgenomic_NF/work/e3/b7ef0f906e1b0ddcd16a270618b358]
-Jun-04 14:52:57.561 [Actor Thread 2] DEBUG nextflow.extension.PublishOp - Publish operator got: /Users/gerbix/Documents/vikas/ncov/margaret_subgenomic/SARS-CoV-2-subgenomic_NF/work/e3/b7ef0f906e1b0ddcd16a270618b358/6406_S40_R1_.R1.metagenome.fastq.gz.bam
-Jun-04 14:52:57.563 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Jun-04 14:52:57.564 [Task submitter] INFO  nextflow.Session - [70/01e1e9] Submitted process > Align (3)
-Jun-04 14:53:08.658 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: Align (3); status: COMPLETED; exit: 0; error: -; workDir: /Users/gerbix/Documents/vikas/ncov/margaret_subgenomic/SARS-CoV-2-subgenomic_NF/work/70/01e1e9111307e7438425a1b0b7f2e0]
-Jun-04 14:53:08.659 [Actor Thread 2] DEBUG nextflow.extension.PublishOp - Publish operator got: /Users/gerbix/Documents/vikas/ncov/margaret_subgenomic/SARS-CoV-2-subgenomic_NF/work/70/01e1e9111307e7438425a1b0b7f2e0/292_S292_L001.bam
-Jun-04 14:53:08.660 [main] DEBUG nextflow.Session - Session await > all process finished
-Jun-04 14:53:08.660 [Actor Thread 2] DEBUG nextflow.extension.PublishOp - Publish operator complete
-Jun-04 14:53:08.660 [main] DEBUG nextflow.Session - Session await > all barriers passed
-Jun-04 14:53:08.665 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=5; failedCount=0; ignoredCount=0; cachedCount=1; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=4m 10s; failedDuration=0ms; cachedDuration=1m 51s;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=6; peakMemory=10 GB; ]
-Jun-04 14:53:08.865 [main] DEBUG nextflow.CacheDB - Closing CacheDB done
-Jun-04 14:53:08.912 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
+  Process: 24943@uw-virongs-vikas.local [10.19.225.194]
+  CPUs: 8 - Mem: 40 GB (2.5 GB) - Swap: 1 GB (845.8 MB)
+Jun-04 16:23:43.710 [main] DEBUG nextflow.Session - Work-dir: /Users/gerbix/Documents/vikas/ncov/margaret_subgenomic/SARS-CoV-2-subgenomic_NF/work [Mac OS X]
+Jun-04 16:23:43.710 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /Users/gerbix/Documents/vikas/ncov/margaret_subgenomic/SARS-CoV-2-subgenomic_NF/bin
+Jun-04 16:23:43.732 [main] DEBUG nextflow.Session - Observer factory: TowerFactory
+Jun-04 16:23:43.734 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jun-04 16:23:43.907 [main] DEBUG nextflow.Session - Session start invoked
+Jun-04 16:23:44.100 [main] WARN  nextflow.NextflowMeta$Preview - DSL 2 IS AN EXPERIMENTAL FEATURE UNDER DEVELOPMENT -- SYNTAX MAY CHANGE IN FUTURE RELEASE
+Jun-04 16:23:44.103 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jun-04 16:23:44.299 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: Align, Trim
+Jun-04 16:23:44.353 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:Trim` matches process Trim
+Jun-04 16:23:44.357 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-04 16:23:44.357 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-04 16:23:44.362 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Jun-04 16:23:44.368 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=8; memory=40 GB; capacity=8; pollInterval=100ms; dumpInterval=5m
+Jun-04 16:23:44.425 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > Trim -- maxForks: 8; blocking: false
+Jun-04 16:23:44.447 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:Align` matches process Align
+Jun-04 16:23:44.448 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-04 16:23:44.448 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-04 16:23:44.450 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > Align -- maxForks: 8; blocking: false
+Jun-04 16:23:44.458 [main] DEBUG nextflow.Session - Ignite dataflow network (4)
+Jun-04 16:23:44.464 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > Trim
+Jun-04 16:23:44.465 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > Align
+Jun-04 16:23:44.465 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Jun-04 16:23:44.465 [main] DEBUG nextflow.Session - Session await
+Jun-04 16:23:44.468 [PathVisitor-2] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: test_data/; pattern: *.fastq.gz; options: [:]
+Jun-04 16:23:44.468 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: test_data/sars_cov_2_genome/; pattern: cov2*; options: [:]
+Jun-04 16:23:44.680 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-04 16:23:44.685 [Task submitter] INFO  nextflow.Session - [42/7a3aa8] Submitted process > Trim (1)
+Jun-04 16:24:02.826 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: Trim (1); status: COMPLETED; exit: 0; error: -; workDir: /Users/gerbix/Documents/vikas/ncov/margaret_subgenomic/SARS-CoV-2-subgenomic_NF/work/42/7a3aa80dc8af668d5f6badf8e59cbf]
+Jun-04 16:24:02.830 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-04 16:24:02.830 [Task submitter] INFO  nextflow.Session - [ff/ec98b4] Submitted process > Trim (2)
+Jun-04 16:24:12.132 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: Trim (2); status: COMPLETED; exit: 0; error: -; workDir: /Users/gerbix/Documents/vikas/ncov/margaret_subgenomic/SARS-CoV-2-subgenomic_NF/work/ff/ec98b45892af97b50e7779d886cc17]
+Jun-04 16:24:12.136 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-04 16:24:12.136 [Task submitter] INFO  nextflow.Session - [d4/f7b484] Submitted process > Trim (3)
+Jun-04 16:24:15.108 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: Trim (3); status: COMPLETED; exit: 0; error: -; workDir: /Users/gerbix/Documents/vikas/ncov/margaret_subgenomic/SARS-CoV-2-subgenomic_NF/work/d4/f7b48402f6cbf53fc2c9425d9864f3]
+Jun-04 16:24:15.113 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-04 16:24:15.114 [Task submitter] INFO  nextflow.Session - [62/ac834c] Submitted process > Align (1)

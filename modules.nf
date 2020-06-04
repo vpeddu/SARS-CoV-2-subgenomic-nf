@@ -48,7 +48,7 @@ bbduk.sh \
     tbo \
     qtrim=r \
     trimq=10 \
-    adapters="${baseDir}/adapters.fa"
+    adapters="$workflow.projectDir/adapters.fa"
 """
 }
 
