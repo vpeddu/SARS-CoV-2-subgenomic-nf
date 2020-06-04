@@ -17,6 +17,7 @@ process Trim {
     // Define the input files
     input:
       file r1
+      file ADAPTERS
 
     // Define the output files
     output:
@@ -48,7 +49,7 @@ bbduk.sh \
     tbo \
     qtrim=r \
     trimq=10 \
-    adapters="$workflow.projectDir/adapters.fa"
+    adapters="${ADAPTERS}"
 """
 }
 

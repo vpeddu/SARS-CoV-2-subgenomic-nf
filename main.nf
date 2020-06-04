@@ -54,7 +54,8 @@ workflow {
         // Validate that the inputs are paired-end gzip-compressed FASTQ
         // This will also enforce that all read pairs are named ${sample_name}.R[12].fastq.gz
         Trim(
-            input_read_ch
+            input_read_ch,
+            file(params.ADAPTER_FILE)
         )
         Align(
         Trim.out ,
