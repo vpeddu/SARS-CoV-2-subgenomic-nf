@@ -63,7 +63,7 @@ process Align {
     
     // Define the Docker container used for this step
     //container "quay.io/biocontainers/bbmap:38.76--h516909a_0"
-    container "rmonti/bbtools:latest"
+    container "quay.io/vpeddu/lava_image:latest"
     // Define the input files
     input:
       file r1
@@ -98,7 +98,7 @@ echo "Starting the alignment of ${r1}"
 #    #tee -a \${sample_name}.log
 out_cmd="out=""\$sample_name.bam"
 
-bbmap.sh in=${r1} \
+/usr/local/miniconda/bin/bbmap.sh in=${r1} \
 ref=${REF_FASTA} \
 perfectmode=t \
 outm=\$sample_name.bam
