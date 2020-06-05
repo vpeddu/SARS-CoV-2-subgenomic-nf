@@ -85,7 +85,8 @@ set -e
 ls -lahtr
 # Get the sample name from the input FASTQ name
 
-#sample_name=`basename -s .trimmed.fastq.gz ${r1}` 
+# sample_name=`basename -s .trimmed.fastq.gz ${r1}`
+sample_name=\$(echo ${r1} | sed 's/.trimmed.fastq.gz//')
 
 echo "Starting the alignment of ${r1}"
 #bowtie2 \
@@ -95,13 +96,12 @@ echo "Starting the alignment of ${r1}"
 #    -U ${r1} | \
 #    samtools view -Sb - > \$sample_name.bam
 #    #tee -a \${sample_name}.log
-
+out_cmd="out=""\$sample_name.bam"
 
 bbmap.sh in=${r1} \
 ref=${REF_FASTA} \
 perfectmode=t \
-out=test.bam 
-#out="\$sample_name".sam
+out=\$sample_name.bam
 
 
       """
