@@ -62,8 +62,8 @@ process Align {
     maxRetries 3
     
     // Define the Docker container used for this step
-    container "quay.io/biocontainers/bbmap:38.76--h516909a_0"
-
+    //container "quay.io/biocontainers/bbmap:38.76--h516909a_0"
+    container "rmonti/bbtools:latest"
     // Define the input files
     input:
       file r1
@@ -101,7 +101,7 @@ out_cmd="out=""\$sample_name.bam"
 bbmap.sh in=${r1} \
 ref=${REF_FASTA} \
 perfectmode=t \
-out=\$sample_name.bam
+outm=\$sample_name.bam
 
 
       """
