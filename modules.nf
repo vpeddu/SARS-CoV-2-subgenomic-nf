@@ -45,7 +45,7 @@ bbduk.sh \
     mink=11 \
     hdist=1 \
     tpe \
-    minlength=60 \
+    minlength=70 \
     tbo \
     qtrim=r \
     trimq=10 \
@@ -70,6 +70,7 @@ process Align {
       //file "*"
       file REF_FASTA
       
+
 
     // Define the output files
     output:
