@@ -47,7 +47,7 @@ BOWTIE2_PREFIX = params.BOWTIE2_PREFIX
 workflow {
 
         input_read_ch = Channel
-            .fromPath("${params.INPUT_FOLDER}*.fastq.gz")
+            .fromPath("${params.INPUT_FOLDER}**.fastq.gz")
 
 
 
