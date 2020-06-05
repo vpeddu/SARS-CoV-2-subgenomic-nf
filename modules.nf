@@ -45,10 +45,10 @@ bbduk.sh \
     mink=11 \
     hdist=1 \
     tpe \
-    minlength=70 \
     tbo \
     qtrim=r \
     trimq=10 \
+    minlength=70 \
     adapters="${ADAPTERS}"
 """
 }
