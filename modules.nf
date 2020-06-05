@@ -62,12 +62,13 @@ process Align {
     maxRetries 3
     
     // Define the Docker container used for this step
-    container "quay.io/fhcrc-microbiome/bowtie2:bowtie2-2.2.9-samtools-1.3.1"
+    container "quay.io/biocontainers/bbmap:38.76--h516909a_0"
 
     // Define the input files
     input:
       file r1
-      file "*"
+      //file "*"
+      file REF_FASTA
       
 
     // Define the output files
@@ -84,16 +85,24 @@ set -e
 ls -lahtr
 # Get the sample name from the input FASTQ name
 
-sample_name=`basename -s .trimmed.fastq.gz ${r1}` 
+#sample_name=`basename -s .trimmed.fastq.gz ${r1}` 
 
 echo "Starting the alignment of ${r1}"
-bowtie2 \
-    --no-unal \
-    --threads ${task.cpus} \
-    -x ${BOWTIE2_PREFIX} \
-    -U ${r1} | \
-    samtools view -Sb - > \$sample_name.bam
-    #tee -a \${sample_name}.log
+#bowtie2 \
+#    --no-unal \
+#    --threads ${task.cpus} \
+#    -x ${BOWTIE2_PREFIX} \
+#    -U ${r1} | \
+#    samtools view -Sb - > \$sample_name.bam
+#    #tee -a \${sample_name}.log
+
+
+bbmap.sh in=${r1} \
+ref=${REF_FASTA} \
+perfectmode=t \
+out=test.bam 
+#out="\$sample_name".sam
+
 
       """
 }

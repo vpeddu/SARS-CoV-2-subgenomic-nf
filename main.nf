@@ -59,7 +59,8 @@ workflow {
         )
         Align(
         Trim.out ,
-        BWT_FILES
+        //BWT_FILES,
+        file(params.REF_FASTA)
 
         )
 
