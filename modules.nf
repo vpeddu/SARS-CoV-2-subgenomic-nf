@@ -49,6 +49,7 @@ bbduk.sh \
     qtrim=r \
     trimq=10 \
     minlength=70 \
+    local=t \
     adapters="${ADAPTERS}"
 """
 }
