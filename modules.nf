@@ -102,7 +102,6 @@ out_cmd="out=""\$sample_name.bam"
 /usr/local/miniconda/bin/bbmap.sh in=${r1} \
 ref=${REF_FASTA} \
 perfectmode=t \
-local=t \
 outm=\$sample_name.bam
 
 
