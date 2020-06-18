@@ -30,12 +30,15 @@ if (params.help){
  */
 
 
-include Trim from './modules.nf'
-include Align from './modules.nf' 
+include Trim_SE from './modules.nf'
+include Align_SE from './modules.nf'
+
+include Trim_PE from './modules.nf'
+include Align_PE from './modules.nf' 
 
 BOWTIE2_PREFIX = params.BOWTIE2_PREFIX
 
-
+params.PAIRED = false
 
    BWT_FILES = Channel
         .fromPath("${params.BOWTIE2_REF_LOCATION}/${params.BOWTIE2_PREFIX}*")
@@ -45,27 +48,42 @@ BOWTIE2_PREFIX = params.BOWTIE2_PREFIX
 
 // Run the workflow
 workflow {
-
+        if(params.PAIRED){ 
+        input_read_ch = Channel
+            .fromFilePairs("${params.INPUT_FOLDER}*_{1,2}*.gz")
+            .ifEmpty { error "Cannot find any FASTQ pairs in ${params.INPUT_FOLDER} ending with .gz" }
+            .map { it -> [it[0], it[1][0], it[1][1]]}
+        } else {
         input_read_ch = Channel
             .fromPath("${params.INPUT_FOLDER}**.fastq.gz")
-
+        }
 
 
         // Validate that the inputs are paired-end gzip-compressed FASTQ
         // This will also enforce that all read pairs are named ${sample_name}.R[12].fastq.gz
-        Trim(
+        if( params.PAIRED){ 
+        Trim_PE(
             input_read_ch,
             file(params.ADAPTER_FILE)
         )
-        Align(
-        Trim.out ,
-        //BWT_FILES,
-        file(params.REF_FASTA)
-
+        Align_PE(
+            Trim_PE.out ,
+            //BWT_FILES,
+            file(params.REF_FASTA)
         )
-
+        } else { 
+        Trim_SE(
+            input_read_ch,
+            file(params.ADAPTER_FILE)
+        )
+        Align_SE(
+            Trim_SE.out ,
+            //BWT_FILES,
+            file(params.REF_FASTA)
+            )
+        }
         
     
-    publish:
-        Align.out to: "${params.OUTDIR}"
+    // publish:
+    //     Align_SE.out to: "${params.OUTDIR}"
 }
