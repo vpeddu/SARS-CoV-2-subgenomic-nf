@@ -174,7 +174,7 @@ process Align_PE {
     
     // Define the Docker container used for this step
     //container "quay.io/biocontainers/bbmap:38.76--h516909a_0"
-    container "quay.io/vpeddu/lava_image:latest"
+    container "quay.io/vpeddu/clomp_containers:latest"
     // Define the input files
     input:
       tuple file(r1), file(r2)
