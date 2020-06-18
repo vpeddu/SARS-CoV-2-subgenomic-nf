@@ -50,7 +50,7 @@ params.PAIRED = false
 workflow {
         if(params.PAIRED){ 
         input_read_ch = Channel
-            .fromFilePairs("${params.INPUT_FOLDER}*_{1,2}*.gz")
+            .fromFilePairs("${params.INPUT_FOLDER}*_R{1,2}*.gz")
             .ifEmpty { error "Cannot find any FASTQ pairs in ${params.INPUT_FOLDER} ending with .gz" }
             .map { it -> [it[0], it[1][0], it[1][1]]}
         } else {
