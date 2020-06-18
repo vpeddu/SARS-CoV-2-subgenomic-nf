@@ -174,7 +174,7 @@ process Align_PE {
     
     // Define the Docker container used for this step
     //container "quay.io/biocontainers/bbmap:38.76--h516909a_0"
-    container "quay.io/vpeddu/clomp_containers:latest"
+    container "quay.io/vpeddu/lava_image:latest"
     // Define the input files
     input:
       tuple file(r1), file(r2)
@@ -214,7 +214,7 @@ out_cmd="out=""\$sample_name.bam"
 /usr/local/miniconda/bin/bbmap.sh in=${r1} in2=${r2} \
 ref=${REF_FASTA} \
 perfectmode=f \
-outm=\$sample_name.sam
+outm=\$sample_name.bam
 
 
       """
