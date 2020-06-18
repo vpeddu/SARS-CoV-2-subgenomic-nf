@@ -186,6 +186,7 @@ process Align_PE {
     // Define the output files
     output:
       file "*.bam"
+      tuple file("${r1}"), file("${r2}")
 
 
     // Code to be executed inside the task
@@ -212,8 +213,8 @@ out_cmd="out=""\$sample_name.bam"
 
 /usr/local/miniconda/bin/bbmap.sh in=${r1} in2=${r2} \
 ref=${REF_FASTA} \
-perfectmode=t \
-outm=\$sample_name.bam
+perfectmode=f \
+outm=\$sample_name.sam
 
 
       """
