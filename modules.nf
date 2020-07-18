@@ -62,8 +62,8 @@ process Align_SE {
     maxRetries 3
     
     // Define the Docker container used for this step
-    //container "quay.io/biocontainers/bbmap:38.76--h516909a_0"
-    container "quay.io/vpeddu/lava_image:latest"
+    container "quay.io/biocontainers/bbmap:38.76--h516909a_0"
+   // container "quay.io/vpeddu/lava_image:latest"
     // Define the input files
     input:
       file r1
