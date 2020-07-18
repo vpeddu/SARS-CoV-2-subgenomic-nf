@@ -99,7 +99,7 @@ echo "Starting the alignment of ${r1}"
 #    #tee -a \${sample_name}.log
 out_cmd="out=""\$sample_name.bam"
 
-/usr/local/miniconda/bin/bbmap.sh in=${r1} \
+bbmap.sh in=${r1} \
 ref=${REF_FASTA} \
 perfectmode=t \
 outm=\$sample_name.bam
