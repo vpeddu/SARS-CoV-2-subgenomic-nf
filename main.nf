@@ -85,5 +85,5 @@ workflow {
         
     
      publish:
-         Align_PE.out to: "${params.OUTDIR}"
+         Align_SE.out to: "${params.OUTDIR}"
 }
